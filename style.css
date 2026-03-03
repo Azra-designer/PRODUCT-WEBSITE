@@ -7,9 +7,8 @@
 
 body {
     font-family: Arial, sans-serif;
-  overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
-
 
 a {
     text-decoration: none;
@@ -307,7 +306,7 @@ section {
 .features-grid {
     /* background-color: yellow; */
     display: grid;
-    gap: 2.6rem;
+    gap: 3rem;
 }
 
 .feature-card {
@@ -345,7 +344,7 @@ section {
 @media (min-width: 768px) {
     section {
         padding: 5rem 0;
-        /* overflow-x: hidden; */
+        overflow-x: hidden;
     }
 
 
@@ -380,7 +379,7 @@ section {
 }
 
 
-/* pricng styling  */
+/* pricing styling  */
 .pricing {
     background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
 
@@ -426,7 +425,7 @@ section {
 .pricing-grid {
     /* background-color: yellow; */
     display: grid;
-    gap: 2.6rem;
+    gap: 3rem;
 }
 
 .pricing-card {
@@ -602,12 +601,6 @@ section {
 
 
 /* testimonial section styling  */
-
-.testimonials{
-  overflow-x: clip;
-    overflow-y: visible;
-    padding-top: 3rem; 
-}
 .testimonials .testimonial-card img {
     width: 70px;
     height: 70px;
@@ -665,9 +658,9 @@ section {
 
 .testimonial-grid {
     /* background-color: yellow; */
+    
     display: grid;
-        gap: 2.6rem;
-         margin-top: 2rem;
+        gap: 4rem;
 }
 
 .testimonial-card {
@@ -704,7 +697,7 @@ section {
 }
 
 /* added  */
-/* ✅ Block karo dono ko */
+
 .testimonial-card .name {
     display: block;
     font-weight: bold;
@@ -723,12 +716,12 @@ section {
 @media (min-width: 768px) {
     section {
         padding: 5rem 0;
-        /* overflow-x: hidden; */
+        overflow-x: hidden;
     }
 
     .testimonials .container {
         /* flex-direction: row; */
-        flex-direction: column;
+         flex-direction: column;
     }
 
     .testimonial-heading {
@@ -761,12 +754,6 @@ section {
     }
 } 
 
-/* @media (min-width: 1200px) {
-   
-    .testimonials .container {
-        flex-direction:column;
-    }
-}  */
 
 
 /* ===== CTA ===== */
@@ -929,3 +916,26 @@ section {
     }
 }
 
+
+/* added later  */
+/* ✅ 1. Mobile Menu Open State */
+.nav-open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+/* ✅ 2. Active Nav Link */
+.nav-links a.active {
+    color: #007bff;
+    font-weight: 700;
+}
