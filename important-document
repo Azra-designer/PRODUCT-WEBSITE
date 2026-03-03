@@ -1,0 +1,60 @@
+<!-- use this steuctur ein every websitefrom now and think mobilefirst veiew and make dekstop with media query -->
+
+<section class="section-name">
+  <div class="container">
+    content
+  </div>
+</section>
+
+<!-- style always like ethis  -->
+ .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.section-name {
+  padding: 80px 0;
+  background: #f5f5f5;
+}
+
+
+
+<!-- Because it separates responsibility:
+
+Element                Responsibility
+section     	         Full-width styling
+.container	           Layout width control
+inner divs	           Flex / grid structure
+
+This makes big projects manageable. -->
+
+
+<!-- ❌ When You Don’t Need Container
+
+Rare cases:
+
+Hero section full width image
+Banner section
+Edge-to-edge design layouts
+
+Example:
+
+<section class="hero">
+  <h1>Full Width Banner</h1>
+</section>
+
+No container needed. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="importantscript.js"></script>
+</body>
+</html>
