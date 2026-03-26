@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    /* overflow-x: hidden; */
 }
 
 a {
@@ -21,9 +20,10 @@ a {
     max-width: 1200px;
 }
 
+/* ===== NAVBAR ===== */
+
 .navbar .container {
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
 }
@@ -43,11 +43,6 @@ a {
     color: #111;
     letter-spacing: 0.5px;
 }
-
-/* .nav-links{
-    display: flex;
-    gap: 2.3rem;
-} */
 
 .nav-links a {
     font-size: 1rem;
@@ -75,8 +70,13 @@ a {
     background-color: #0056b3;
 }
 
-
-/* mobile-first  */
+/*
+  Mobile-first approach:
+  On small screens, nav-links and nav-btn are hidden by default (display: none).
+  The hamburger icon is shown instead.
+  At 768px and above, the hamburger hides and the full nav reappears via the media query below.
+  The .nav-open class (toggled by JS on hamburger click) overrides display:none to show the mobile dropdown.
+*/
 .nav-links {
     display: none;
 }
@@ -89,32 +89,32 @@ a {
     display: block;
     font-size: 1.5rem;
     cursor: pointer;
-    /* font-weight: bold;
- color: #111; */
+}
+
+/* Mobile menu open state — toggled by JS */
+.nav-open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+}
+
+/* Active nav link — highlighted by JS on scroll */
+.nav-links a.active {
+    color: #007bff;
+    font-weight: 700;
 }
 
 
-/* media query */
-@media (min-width: 768px) {
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .logo a {
-        font-size: 1.6rem;
-    }
-
-    .nav-btn {
-        display: block;
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
-
-/* hero section  */
+/* ===== HERO ===== */
 
 section {
     padding: 2rem 0;
@@ -199,77 +199,18 @@ section {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-
 .placeholder-box {
     background: #e8f0ff;
-    /* height: 17rem; */
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 2rem;
 }
 
 
+/* ===== FEATURES ===== */
 
-/* media query */
-@media (min-width: 768px) {
-    section {
-        padding: 5rem 0;
-    }
-
-    .hero .container {
-        gap: 2.5rem;
-    }
-
-    .hero-text {
-        flex: 1;
-    }
-
-    .hero-text h1 {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #111;
-        line-height: 1.2;
-        margin-bottom: 1.25rem;
-    }
-
-    .hero-image {
-        flex: 2;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero .container {
-        flex-direction: row;
-        text-align: start;
-    }
-
-    .btn-primary {
-        padding: 0.86rem 1.8rem;
-        font-size: 1rem;
-    }
-
-    .btn-secondary {
-        padding: 0.86rem 1.8rem;
-        font-size: 1rem;
-    }
-
-    .hero-text p {
-        font-size: 1.2rem;
-        margin-bottom: 1.875rem;
-        line-height: 1.6;
-    }
-
-    .hero-buttons {
-        justify-content: flex-start;
-    }
-}
-
-
-
-/* features styling  */
 .features {
     background-color: #ffffff;
 }
@@ -305,13 +246,11 @@ section {
 }
 
 .features-grid {
-    /* background-color: yellow; */
     display: grid;
     gap: 3rem;
 }
 
 .feature-card {
-    /* border: 3px solid; */
     padding: 2rem;
     border-radius: 12px;
     background: #f9fafb;
@@ -341,49 +280,11 @@ section {
     color: #666;
 }
 
-/* media query */
-@media (min-width: 768px) {
-    section {
-        padding: 5rem 0;
-        overflow-x: hidden;
-    }
 
+/* ===== PRICING ===== */
 
-    .features-heading {
-        text-align: center;
-        /* margin-bottom: 3rem; */
-    }
-
-    .features-heading h2 {
-        font-size: 2.5rem;
-        line-height: 1.3;
-    }
-
-    .features-heading p {
-        font-size: 1rem;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-@media (min-width: 1200px) {
-    .features-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .features .container {
-        flex-direction: row;
-    }
-}
-
-
-/* pricing styling  */
 .pricing {
     background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
-
 }
 
 .pricing .container {
@@ -392,13 +293,10 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
-    /* background-color: red; */
 }
 
 .pricing-heading {
     text-align: center;
-    /* margin-bottom: 3rem; */
-    /* background-color: red; */
 }
 
 .pricing-heading h2 {
@@ -424,7 +322,6 @@ section {
 }
 
 .pricing-grid {
-    /* background-color: yellow; */
     display: grid;
     gap: 3rem;
 }
@@ -432,10 +329,9 @@ section {
 .pricing-card {
     padding: 2rem;
     border-radius: 12px;
-    background: #f9fafb;
+    background-color: white;
     transition: .3s;
     white-space: nowrap;
-    background-color: white;
 }
 
 .pricing-card:hover {
@@ -464,8 +360,6 @@ section {
 }
 
 .pricing-card ul {
-    /* background-color: 
-    red; */
     margin-bottom: 2rem;
     line-height: 1.9;
     list-style: none;
@@ -497,9 +391,7 @@ section {
 .popular {
     background-color: #007bff;
     color: white;
-    /* text-align: center; */
 }
-
 
 .popular h3 {
     color: white;
@@ -508,7 +400,6 @@ section {
 .popular .popular-badge {
     background-color: white;
     padding: .5rem .8rem;
-    /* display: inline-block; */
     display: block;
     width: fit-content;
     margin: 0 auto 1rem auto;
@@ -529,90 +420,18 @@ section {
     color: white;
 }
 
-/* media query */
-@media (min-width: 768px) {
-    /* section {
-        padding: 5rem 0;
-        overflow-x: hidden;
-    } */
 
-    .pricing-heading {
-        text-align: center;
-        /* margin-bottom: 3rem; */
-    }
+/* ===== TESTIMONIALS ===== */
 
-    .pricing-heading h2 {
-        font-size: 2.5rem;
-        line-height: 1.3;
-    }
-
-    .pricing-heading p {
-        font-size: 1rem;
-    }
-
-    .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pricing-card {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .pricing-card ul {
-        flex-grow: 1;
-    }
-
-    /* .pricing-card button {
-    align-self: flex-start;
-    align-self: center ;
-} */
-
-
-}
-
-
-
-@media (min-width: 1200px) {
-
-    .pricing .container {
-        flex-direction: row;
-    }
-
-    .pricing-card h3 {
-        font-size: 1.5rem;
-    }
-
-    .pricing-card .price {
-        font-size: 3rem;
-    }
-
-    .pricing-card .price span {
-        font-size: 1.5rem;
-        font-weight: 500;
-    }
-
-    .pricing-card ul {
-        /* background-color: 
-    red; */
-        margin-bottom: 2.2rem;
-        font-weight: 500;
-    }
-}
-
-
-/* testimonial section styling  */
 .testimonials .testimonial-card img {
     width: 70px;
     height: 70px;
-    /* ✅ fixed height do */
     border-radius: 50%;
     object-fit: cover;
     position: absolute;
     top: -30px;
     left: 50%;
     transform: translateX(-50%);
-    /* ✅ exactly center */
     border: 4px solid white;
 }
 
@@ -621,7 +440,6 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
-    /* background-color: rgb(80, 74, 74); */
 }
 
 .testimonial-heading h2 {
@@ -640,7 +458,6 @@ section {
 .testimonial-heading .label {
     font-size: 0.9rem;
     color: #007bff;
-    /* blue karo — match karega */
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -658,14 +475,11 @@ section {
 }
 
 .testimonial-grid {
-    /* background-color: yellow; */
-
     display: grid;
     gap: 4rem;
 }
 
 .testimonial-card {
-    /* border: 3px solid; */
     padding: 3.3rem 2rem 2rem 2rem;
     border-radius: 12px;
     background: #f9fafb;
@@ -687,7 +501,6 @@ section {
     font-weight: 500;
 }
 
-
 .testimonial-card span {
     font-size: 1.2rem;
     margin-bottom: 1.4rem;
@@ -696,8 +509,6 @@ section {
     font-weight: 500;
     text-align: center;
 }
-
-/* added  */
 
 .testimonial-card .name {
     display: block;
@@ -713,52 +524,8 @@ section {
 }
 
 
-/* media query  */
-@media (min-width: 768px) {
-    section {
-        padding: 5rem 0;
-        overflow-x: hidden;
-    }
-
-    .testimonials .container {
-        /* flex-direction: row; */
-        flex-direction: column;
-    }
-
-    .testimonial-heading {
-        text-align: center;
-        /* margin-bottom: 3rem; */
-    }
-
-    .testimonial-heading h2 {
-        font-size: 2.5rem;
-        line-height: 1.3;
-    }
-
-    .testimonial-heading p {
-        font-size: 1rem;
-    }
-
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-@media (min-width: 1200px) {
-    .testimonial-grid {
-        grid-template-columns: repeat(4, 1fr);
-
-    }
-
-    .testimonials .container {
-        flex-direction: row;
-    }
-}
-
-
-
 /* ===== CTA ===== */
+
 .cta {
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     text-align: center;
@@ -780,7 +547,6 @@ section {
 
 .cta h2 span {
     color: #cce5ff;
-    /* light blue — white se alag dikhega */
 }
 
 .cta p {
@@ -816,19 +582,9 @@ section {
     color: #007bff;
 }
 
-@media (min-width: 768px) {
-    .cta h2 {
-        font-size: 2.8rem;
-    }
 
-    .cta p {
-        font-size: 1.1rem;
-    }
-}
-
-
-/* footer  */
 /* ===== FOOTER ===== */
+
 .footer {
     background-color: #111;
     color: #ccc;
@@ -842,7 +598,6 @@ section {
     padding-bottom: 3rem;
 }
 
-/* Brand Column */
 .footer-brand h3 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -874,7 +629,6 @@ section {
     color: #007bff;
 }
 
-/* Other Columns */
 .footer-col h4 {
     font-size: 1rem;
     font-weight: bold;
@@ -900,7 +654,6 @@ section {
     color: #007bff;
 }
 
-/* Bottom Bar */
 .footer-bottom {
     border-top: 1px solid #333;
     padding: 1.5rem 0;
@@ -912,33 +665,211 @@ section {
     color: #666;
 }
 
-/* Media Query */
+
+/* ==============================================
+   MEDIA QUERIES
+   Mobile-first: all base styles above are for mobile.
+   These two blocks layer on styles for larger screens.
+   ============================================== */
+
+/* --- Tablets and above (768px+) --- */
 @media (min-width: 768px) {
+
+    /* Global */
+    section {
+        padding: 5rem 0;
+        overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .logo a {
+        font-size: 1.6rem;
+    }
+
+    .nav-btn {
+        display: block;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    /* Hero */
+    .hero .container {
+        gap: 2.5rem;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #111;
+        line-height: 1.2;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-image {
+        flex: 2;
+    }
+
+    /* Features */
+    .features-heading {
+        text-align: center;
+    }
+
+    .features-heading h2 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+
+    .features-heading p {
+        font-size: 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Pricing */
+    .pricing-heading {
+        text-align: center;
+    }
+
+    .pricing-heading h2 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+
+    .pricing-heading p {
+        font-size: 1rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pricing-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pricing-card ul {
+        flex-grow: 1;
+    }
+
+    /* Testimonials */
+    .testimonials .container {
+        flex-direction: column;
+    }
+
+    .testimonial-heading {
+        text-align: center;
+    }
+
+    .testimonial-heading h2 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+
+    .testimonial-heading p {
+        font-size: 1rem;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* CTA */
+    .cta h2 {
+        font-size: 2.8rem;
+    }
+
+    .cta p {
+        font-size: 1.1rem;
+    }
+
+    /* Footer */
     .footer .container {
         grid-template-columns: 2fr 1fr 1fr 1fr;
     }
 }
 
 
-/* added later  */
-/* ✅ 1. Mobile Menu Open State */
-.nav-open {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 1.5rem;
-    gap: 1.2rem;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    z-index: 999;
-}
+/* --- Large desktops (1200px+) --- */
+@media (min-width: 1200px) {
 
-/* ✅ 2. Active Nav Link */
-.nav-links a.active {
-    color: #007bff;
-    font-weight: 700;
+    /* Hero */
+    .hero .container {
+        flex-direction: row;
+        text-align: start;
+    }
+
+    .btn-primary {
+        padding: 0.86rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .btn-secondary {
+        padding: 0.86rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+        margin-bottom: 1.875rem;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    /* Features */
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .features .container {
+        flex-direction: row;
+    }
+
+    /* Pricing */
+    .pricing .container {
+        flex-direction: row;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .pricing-card .price {
+        font-size: 3rem;
+    }
+
+    .pricing-card .price span {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .pricing-card ul {
+        margin-bottom: 2.2rem;
+        font-weight: 500;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .testimonials .container {
+        flex-direction: row;
+    }
 }
